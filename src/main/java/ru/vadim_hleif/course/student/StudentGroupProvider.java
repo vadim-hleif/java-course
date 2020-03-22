@@ -2,6 +2,8 @@ package ru.vadim_hleif.course.student;
 
 import io.github.benas.randombeans.api.EnhancedRandom;
 import one.util.streamex.StreamEx;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
 import java.util.List;
@@ -10,12 +12,13 @@ import java.util.stream.Collectors;
 
 import static java.util.function.Function.identity;
 
+@Service
 public class StudentGroupProvider {
 
     private final StudentsGenerator generator;
     private final EnhancedRandom randomize;
 
-    public StudentGroupProvider(StudentsGenerator generator, EnhancedRandom randomize) {
+    public StudentGroupProvider(StudentsGenerator generator, @Qualifier("group-name-generator") EnhancedRandom randomize) {
         this.generator = generator;
         this.randomize = randomize;
     }

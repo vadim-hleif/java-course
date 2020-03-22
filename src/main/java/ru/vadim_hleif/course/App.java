@@ -1,27 +1,20 @@
 package ru.vadim_hleif.course;
 
-import io.github.benas.randombeans.EnhancedRandomBuilder;
-import io.github.benas.randombeans.api.EnhancedRandom;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.vadim_hleif.course.config.Config;
 import ru.vadim_hleif.course.student.Student;
 import ru.vadim_hleif.course.student.StudentGroupProvider;
-import ru.vadim_hleif.course.student.StudentsGenerator;
 
 import java.util.List;
 import java.util.Map;
 
 public class App {
-    public static void main(String[] args) {
-        EnhancedRandom studentNameRandomize = new EnhancedRandomBuilder()
-                .stringLengthRange(5, 10)
-                .build();
-        EnhancedRandom groupNameRandomize = new EnhancedRandomBuilder()
-                .stringLengthRange(1, 3)
-                .build();
+    private static final ApplicationContext ctx = new AnnotationConfigApplicationContext(Config.class);
+    private static final StudentGroupProvider groupProvider = ctx.getBean(StudentGroupProvider.class);
 
-        StudentGroupProvider studentGroupProvider = new StudentGroupProvider(
-                new StudentsGenerator(studentNameRandomize), groupNameRandomize
-        );
-        Map<String, List<Student>> groups = studentGroupProvider.generateStudentGroups(1000, 4);
+    public static void main(String[] args) {
+        Map<String, List<Student>> groups = groupProvider.generateStudentGroups(1000, 4);
 
         System.out.println(groups);
     }
