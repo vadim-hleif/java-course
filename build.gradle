@@ -1,6 +1,7 @@
 plugins {
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
     id 'java'
-    id 'application'
 }
 
 sourceCompatibility = 1.11
@@ -11,13 +12,13 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 
     implementation group: 'io.github.benas', name: 'random-beans', version: '3.9.0'
     implementation group: 'one.util', name: 'streamex', version: '0.7.2'
     // https://mvnrepository.com/artifact/org.springframework/spring-context
-    implementation group: 'org.springframework', name: 'spring-context', version: '5.2.4.RELEASE'
-
-
 
     /**
      * Tests
