@@ -14,11 +14,16 @@ import java.util.Map;
 @Controller
 public class GreetingController {
 
+    @Autowired
+    private StudentGroupProvider provider;
 
     @GetMapping("/greeting")
     public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name, Model model) {
         model.addAttribute("name", name);
 
+        Map<String, List<Student>> stringListMap = provider.generateStudentGroups(10, 2);
+
+        model.addAttribute("students", stringListMap);
         return "test";
     }
 
