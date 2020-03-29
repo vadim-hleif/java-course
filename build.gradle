@@ -14,7 +14,10 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'com.github.jknack:handlebars-helpers:4.1.2'
+    implementation group: 'com.github.jknack', name: 'handlebars-springmvc', version: '4.1.2'
+
+
 
     implementation group: 'io.github.benas', name: 'random-beans', version: '3.9.0'
     implementation group: 'one.util', name: 'streamex', version: '0.7.2'

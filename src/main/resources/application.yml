@@ -1,0 +1,8 @@
+handlebars:
+  prefix: /templates/
+  suffix: .hbs
+
+
+spring:
+  thymeleaf:
+    enabled: false
