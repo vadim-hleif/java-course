@@ -20,8 +20,10 @@ public class RandomStudentGroupProvider implements StudentGroupProvider {
     private final StudentsProvider studentsProvider;
     private final EnhancedRandom randomize;
 
-    public RandomStudentGroupProvider(@Qualifier("students-database") StudentsProvider studentsProvider,
-                                      @Qualifier("group-name-generator") EnhancedRandom randomize) {
+    public RandomStudentGroupProvider(
+            // @Qualifier("students-database")
+            @Qualifier("students-database-jpa") StudentsProvider studentsProvider,
+            @Qualifier("group-name-generator") EnhancedRandom randomize) {
         this.studentsProvider = studentsProvider;
         this.randomize = randomize;
     }
@@ -33,6 +35,7 @@ public class RandomStudentGroupProvider implements StudentGroupProvider {
 
     private Map<String, List<Student>> generateStudentGroups(int groupsCount) {
         List<Student> students = studentsProvider.getAll();
+
         if (students.isEmpty()) {
             return new HashMap<>();
         }
