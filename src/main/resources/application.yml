@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/java-course
+    username: postgres
+    password: password
+#  flyway:
+#    baseline-on-migrate: true
+#    baseline-description: V1__init_default_scheme.sql

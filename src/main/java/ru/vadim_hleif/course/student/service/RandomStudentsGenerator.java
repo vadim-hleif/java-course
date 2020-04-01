@@ -10,7 +10,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
-public class RandomStudentsGenerator {
+@Qualifier("students-random")
+public class RandomStudentsGenerator implements StudentsProvider {
 
     private final EnhancedRandom randomize;
 
@@ -18,12 +19,18 @@ public class RandomStudentsGenerator {
         this.randomize = randomize;
     }
 
-    public Stream<Student> generateStudentsStream(int seed) {
+    @Override
+    public List<Student> getAll() {
+        return generateStudents(20);
+    }
+
+    private Stream<Student> generateStudentsStream(int seed) {
         return randomize.objects(Student.class, seed);
     }
 
-    public List<Student> generateStudents(int seed) {
+    private List<Student> generateStudents(int seed) {
         return this.generateStudentsStream(seed).collect(Collectors.toList());
     }
+
 
 }
