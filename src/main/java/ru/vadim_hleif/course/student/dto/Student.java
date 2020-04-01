@@ -1,4 +1,4 @@
-package ru.vadim_hleif.course.student;
+package ru.vadim_hleif.course.student.dto;
 
 import java.util.Objects;
 

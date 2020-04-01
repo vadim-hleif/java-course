@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p th:text="'Hello, ' + ${name} + '!'"></p>
+
+
+<div class="groups" th:each="group: ${groups}">
+    <span th:text="'group: ' + ${group.key}"></span>
+    <ul class="students" th:each="student: ${group.value}">
+        <li th:text="'student: ' + ${student.name}"></li>
+    </ul>
+</div>
+</body>
+</html>

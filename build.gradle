@@ -16,6 +16,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'com.github.jknack:handlebars-helpers:4.1.2'
     implementation group: 'com.github.jknack', name: 'handlebars-springmvc', version: '4.1.2'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 
 
 

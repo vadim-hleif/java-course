@@ -2,6 +2,8 @@ package ru.vadim_hleif.course.student;
 
 import org.junit.jupiter.api.Test;
 import ru.vadim_hleif.course.config.Config;
+import ru.vadim_hleif.course.student.dto.Student;
+import ru.vadim_hleif.course.student.service.RandomStudentsGenerator;
 
 import java.util.List;
 
@@ -13,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class StudentsGeneratorTest {
 
-    private final StudentsGenerator generator = new StudentsGenerator(new Config().studentNameRandomize());
+    private final RandomStudentsGenerator generator = new RandomStudentsGenerator(new Config().studentNameRandomize());
 
     @Test
     void shouldGenerateCorrectNumbers() {

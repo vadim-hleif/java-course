@@ -1,19 +1,20 @@
-package ru.vadim_hleif.course.student;
+package ru.vadim_hleif.course.student.service;
 
 import io.github.benas.randombeans.api.EnhancedRandom;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import ru.vadim_hleif.course.student.dto.Student;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
-public class StudentsGenerator {
+public class RandomStudentsGenerator {
 
     private final EnhancedRandom randomize;
 
-    public StudentsGenerator(@Qualifier("student-name-generator") EnhancedRandom randomize) {
+    public RandomStudentsGenerator(@Qualifier("student-name-generator") EnhancedRandom randomize) {
         this.randomize = randomize;
     }
 
